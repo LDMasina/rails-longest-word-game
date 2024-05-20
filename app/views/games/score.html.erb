@@ -1,2 +1,11 @@
-<h1>Games#score</h1>
-<p>Find me in app/views/games/score.html.erb</p>
+<h1>Score</h1>
+<p>Your word: <%= params[:word] %></p>
+<% if @included && @valid_word %>
+  <p>Congratulations! "<%= params[:word] %>" is a valid English word of <%= params[:word].length %> letters.</p>
+<% elsif !@included %>
+  <p>Sorry, "<%= params[:word] %>" can't be built out of the grid letters.</p>
+<% else %>
+  <p>Sorry, "<%= params[:word] %>" is not a valid English word.</p>
+<% end %>
+
+<p><%= link_to "Play again", new_path %></p>
